@@ -1,0 +1,46 @@
+1. What is the propagation time over a link of length 3,000km if the propagation speed is 2*10^8 m/s? (the notation 10^8 means 10 to the 8th power)
+- 15 milliseconds 
+
+2. How does the length of a transmitted packet affect propagation time?
+- Lenght of transmitted packet does not affect propagation time.
+
+3. How does the transmission rate affect propagation time?
+- Transmission rate has nothing to do with propagation time.
+
+4. What is the transmission time for a packet of length 1500 B on a link with data rate 10Mb/s? Note the conventions: B stands for byte (8 bits); b stands for bit (1 bit); M stands for decimal Mega (10^6)
+- 1.2 milliseconds
+
+5. How does the length of a link affect the transmission time of packets?
+- Length of a link has nothing to do with transmission time, only propagation time.
+
+6. How does the propagation speed of a link affect the transmission time of packets?
+- It does not.
+
+7. Draw a diagram and use it to show that the notion of the width (measured in metres) of a bit on a link makes physical sense. Try to explain in terms that would make sense to a 5 grader.
+- you can only fit so many bits into a given wire.  If the bits have a larger width then you can fit less of them than into a wire.  If the bits have a smaller width then you could fit more into that same wire.
+- See attached photo
+
+8. Give a formula for the width w of a bit on a link in terms of the data rate R and the propagation speed s. 
+- W m/b = (S m/s)/(R b/s)
+
+9. Give a formula for how many bits of width w will be “in-flight” at the same time on a link of length d?
+- D/W = bits
+
+10. Refer back to question 1 and write the general formula for the propagation time in terms of the propagation speed s and length of a link d. Call this quantity t. 
+- t = d/s
+
+11.Combine your answers to problems 8, 9, and 10 to give a physical interpretation of the quantity R*t – also known as the bandwidth-delay product.
+- The maximum amount of bits that can be on a network at any specific time.
+
+12.(Combining problems 1 and 4): What is the total delay associated with sending a 1500 B packet on a 3,000km link with a propagation speed of 2*10^8 m/s and a transmission rate of 10Mb/s? (Ignore queueing and processing delays)
+- 16.2 milliseconds
+
+13.Now suppose instead of a single 3,000km link there are three 1,000km links connected by store-and-forward routers. Assuming the propagation speed and transmission rate are the same as before what is the total delay for a 1500 B packet? The picture looks like this (S is the source, D is the destination and R1 and R2 are the two routers.)S → R1 → R2 → D
+- 17.4 milliseconds
+
+14. Under the conditions of problem 13 what is the total delay (from the time the first bit is sent to the time that the last bit is received) for 1000 packets?
+- 17.4 seconds 
+
+15.Now suppose a second source S2 sends to R1 over a separate link having the same speed as the S → R1 link. The packets from S2 are also destined for D. How will the delay change relative to question 14? Why? What assumption do you have to make to ensure that no packets are lost?
+- It will increase because the arrival rate of bits to the first router has doubled. We must assume that the memory buffer of the first router is large enough to hold arriving packets without running out of memory.
+
