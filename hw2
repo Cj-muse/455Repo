@@ -5,14 +5,19 @@ HW2
 1. The kliks URL for this class is http://kliks.eecs.wsu.edu:7070. In networking terms, what is the
 “7070” here? (Section 2.1.2)
 	- The 7070 indicates the port number. 
+
 2. CptS 355 is also using kliks, but the URL for that class is http://kliks.eecs.wsu.edu:8080. Why do
 you suppose there is a different URLs for the two classes?
+  - There has to be so that different data can be accessed by the different users for the different classes.
 
 3. Explain succinctly the difference between a port and a socket.
+- A port is location on a computer where data can be sent when recieved from a network. 
+- A socket is an IP address along with a Port and is a way for two computers to connect with each other.
 
 4. What is the importance of well-known ports such as port 80 for web, port 25 for smtp, and port 22
 for secure shell? Can these services be run on other ports? What reasons might one have for doing that?
 What issues have to be dealt with when services are run on non-standard ports?
+  -  
 
 5. Figure 2.4 says that downloading web documents requires a few kbps. Do you think that a few kbps
 of download speed gives a satisfactory user experience? What might have changed since Figure 2.4
