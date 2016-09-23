@@ -11,7 +11,7 @@ Consider the cross-country example shown in Figure 3.17. How big would the windo
 	RTT = .3 seconds
 
 	Usender =     (L/R)                 .000012 b
-				_________        =     _________          =   .000039998 (bits cancel)
+				_________        =     _________          =   .000039998  
 					
              ((RTT) + (L/R))        (.000012 b) + (.3 sec)
  
