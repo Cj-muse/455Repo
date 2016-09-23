@@ -6,7 +6,15 @@ P15, P16, P22, P23, P27, P31, P32, P40, P43, P54, P55
 
 P15.
 Consider the cross-country example shown in Figure 3.17. How big would the window size have to be for the channel utilization to be greater than 98 percent? Suppose that the size of a packet is 1,500 bytes, including both header fields and data.
-- 
+	L = 12,000 bits
+	R = 10^9 bits/second
+	RTT = .3 seconds
+
+	Usender =     (L/R)                 .000012 b
+				_________        =     _________          =   .000039998 (bits cancel)
+					
+             ((RTT) + (L/R))        (.000012 b) + (.3 sec)
+ 
 
 P16.
 Suppose an application uses rdt 3.0 as its transport layer protocol. As the stop-and-wait protocol has very low channel utilization (shown in the crosscountry example), the designers of this application let the receiver keep sending back a number (more than two) of alternating ACK 0 and ACK 1 even if the corresponding data have not arrived at the receiver. Would this application design increase the channel utilization? Why? Are there any potential problems with this approach? Explain.
