@@ -94,26 +94,42 @@ c. For the formula in part (b) let n approach infinity. Comment on why this aver
 P40. 
 Consider Figure 3.58. Assuming TCP Reno is the protocol experiencing the behavior shown above, answer the following questions. In all cases, you should provide a short discussion justifying your answer. 
 a. Identify the intervals of time when TCP slow start is operating.
+	- 1-6 and 23-26
 b. Identify the intervals of time when TCP congestion avoidance is operating.
+	- 6-16 and 17-22
 c. After the 16th transmission round, is segment loss detected by a triple duplicate ACK or by a timeout?
+	- Triple duplicate ACK because it only drops to where ssthresh must be and continues with congestion avoidance.
 d. After the 22nd transmission round, is segment loss detected by a triple duplicate ACK or by a timeout?
+	- A timeout indicated by the congestion window dropping to one and slow start begining operation.
 e. What is the initial value of ssthresh at the first transmission round?
+	- it would apear to be about 32 segments
 f. What is the value of ssthresh at the 18th transmission round?
+	- 42/2 = 21 segments
 g. What is the value of ssthresh at the 24th transmission round?
+	- Half of what it was before transmission round 22 so 16 segments.
 h. During what transmission round is the 70th segment sent?
+	- the sixth transmisison round.  81 segments total have been sent after the 6th round.
 i. Assuming a packet loss is detected after the 26th round by the receipt of a triple duplicate ACK, what will be the values of the congestion window size and of ssthresh?
+	- cwnd=ssthresh+3 • MSS
+	- ssthresh = cwnd/2 = 8/2 = 4 segments
 j. Suppose TCP Tahoe is used (instead of TCP Reno), and assume that triple duplicate ACKs are received at the 16th round. What are the ssthresh and the congestion window size at the 19th round? 
+	- ssthresh = 21
+	- cwnd = 4 since slow start begins again from the original cwnd
 k. Again suppose TCP Tahoe is used, and there is a timeout event at 22nd round. How many packets have been sent out from 17th round till 22nd round, inclusive?
+	- if assuming congestion avoidance is being used then 24+25+26+27+28+29 = 159 segments
 
 P43. 
-Host A is sending an enormous file to Host B over a TCP connection. Over this connection there is never any packet loss and the timers never expire. Denote the transmission rate of the link connecting Host A to the Internet by R bps. Suppose that the process in Host A is capable of sending data into its TCP socket at a rate S bps, where S = 10 · R. Further suppose that the TCP receive buffer is large enough to hold the entire file, and the send buffer can hold only one percent of the file. What would prevent the process in Host A from continuously passing data to its TCP socket at rate S bps? TCP flow control? TCP congestion control? Or something else? Elaborate.
-
+Host A is sending an enormous file to Host B over a TCP connection. Over this connection there is never any packet loss and the timers never expire. Denote the transmission rate of the link connecting Host A to the Internet by R bps. Suppose that the process in Host A is capable of sending data into its TCP socket at a rate S bps, where S = 10 · R. Further suppose that the TCP receive buffer is large enough to hold the entire file, and the send buffer can hold only one percent of the file. What would prevent the process in Host A from continuously passing data to its TCP socket at rate S bps? TCP flow control? TCP congestion control? Or something else? Elaborate. 
+	-  If R is less than 1% of the file size then the send buffer would fill up  and restrict the flow of data to R which is less than S.
 
 P54. 
 In our discussion of TCP congestion control in Section 3.7, we implicitly assumed that the TCP sender always had data to send. Consider now the case that the TCP sender sends a large amount of data and then goes idle (since it has no more data to send) at t 1 . TCP remains idle for a relatively long period of time and then wants to send more data at t 2 . What are the advantages and dis- advantages of having TCP use the cwnd and ssthresh values from t 1 when starting to send data at t 2 ? What alternative would you recommend? Why?
+	- 
 
 P55.
-In this problem we investigate whether either UDP or TCP provides a degree of end-point authentication. a. Consider a server that receives a request within a UDP packet and responds to that request within a UDP packet (for example, as done by a DNS server). If a client with IP address X spoofs its address with address Y, where will the server send its response? b. Suppose a server receives a SYN with IP source address Y, and after responding with a SYNACK, receives an ACK with IP source address Y with the correct acknowledgment number. Assuming the server chooses a random initial sequence number and there is no “man-in-the-middle,” can the server be certain that the client is indeed at Y (and not at some other address X that is spoofing Y)?
+In this problem we investigate whether either UDP or TCP provides a degree of end-point authentication. 
+a. Consider a server that receives a request within a UDP packet and responds to that request within a UDP packet (for example, as done by a DNS server). If a client with IP address X spoofs its address with address Y, where will the server send its response? 
+b. Suppose a server receives a SYN with IP source address Y, and after responding with a SYNACK, receives an ACK with IP source address Y with the correct acknowledgment number. Assuming the server chooses a random initial sequence number and there is no “man-in-the-middle,” can the server be certain that the client is indeed at Y (and not at some other address X that is spoofing Y)?
 
 
 
