@@ -1,0 +1,76 @@
+contents xx
+chapter 4 305
+questions 417
+due friday 10/21
+
+Conner Mattingly 
+Hw4
+
+P4.
+a. 
+Address Output
+H1		  1
+H2		  2
+H3        3
+Other	  4
+
+b. 
+Forwarding is determined by destination address so that means thats all packages destined for host 3 must go through the same output link.  You don't split the same destination between two different output links.
+
+c. 
+(VC numbers are represented by variables)
+Incoming interface | Incoming VC # | Outgoing interface | outgoing VC # 
+   1				       X		         3                  Y
+   2					   W	 			 4    			    Z
+   3					   S				 1 				    T
+   4					   U				 2				    V
+
+d. 
+(VC numbers are represented by variables)
+(Router D would need to use them to determin which output link to send specific VC marked packets)
+Router B
+Incoming interface | Incoming VC # | Outgoing interface | outgoing VC # 
+   1				       A		         2                  A
+   2					   C	 			 1    			    D
+  
+Router C
+Incoming interface | Incoming VC # | Outgoing interface | outgoing VC # 
+   1				       X		         2                  Y
+   2					   W	 			 1    			    Z
+   
+Router D 
+Incoming interface | Incoming VC # | Outgoing interface | outgoing VC # 
+   1				       X		         3                  Y
+   2					   W	 			 3    			    Z
+   3					   S				 1 				    T
+   3					   E				 2 				    F
+  
+P7.
+
+
+
+P10.
+
+P11.
+
+P15.
+
+P16.
+
+P19. 
+
+P26.
+
+P27d. 
+
+P28. 
+
+P32.
+ 
+P55.
+
+
+
+
+ 
+
