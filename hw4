@@ -1,61 +1,102 @@
 contents xx
 chapter 4 305
 questions 417
+325
+block addresses
+345
 due friday 10/21
 
 Conner Mattingly 
 Hw4
 
-P4.
-a. 
-Address Output
-H1		  1
-H2		  2
-H3        3
-Other	  4
+P4)
+a) 
+Destination | Output link
+H1		      |    1
+H2		      |    2
+H3          |    3
+Other	      |    4
 
-b. 
+b)
 Forwarding is determined by destination address so that means thats all packages destined for host 3 must go through the same output link.  You don't split the same destination between two different output links.
 
-c. 
+c) 
 (VC numbers are represented by variables)
 Incoming interface | Incoming VC # | Outgoing interface | outgoing VC # 
-   1				       X		         3                  Y
-   2					   W	 			 4    			    Z
-   3					   S				 1 				    T
-   4					   U				 2				    V
+   1				               X		             3                 Y
+   2					             W	 			         4    			       Z
+   3					             S				         1 				         T
+   4					             U				         2				         V
 
-d. 
+d) 
 (VC numbers are represented by variables)
 (Router D would need to use them to determin which output link to send specific VC marked packets)
 Router B
 Incoming interface | Incoming VC # | Outgoing interface | outgoing VC # 
-   1				       A		         2                  A
-   2					   C	 			 1    			    D
+   1				               A		            2                  A
+   2					             C	 			        1     			       D
   
 Router C
 Incoming interface | Incoming VC # | Outgoing interface | outgoing VC # 
-   1				       X		         2                  Y
-   2					   W	 			 1    			    Z
+   1				              X		                2                 Y
+   2					            W	 	          		  1    			        Z
    
 Router D 
 Incoming interface | Incoming VC # | Outgoing interface | outgoing VC # 
-   1				       X		         3                  Y
-   2					   W	 			 3    			    Z
-   3					   S				 1 				    T
-   3					   E				 2 				    F
+   1				              X		               3                 Y
+   2					            W	 			           3    			       Z
+   3					            S		      		     1 				         T
+   3					            E       				   2 				         F
   
 P7.
+a) No.  Only one packet can be switched across the bus at a time.   
+b) yes.  Since crossbars utilize multiple busses parallel switching can occur.
+c) No since the output port only has one bus that is connected one of the packets will have to wait at the input for the other packet to be switched.
 
+P10)
+a) 
+11100000 00         |    0
+11100000 01000000   |    1
+1110000             |    2
+otherwise           |    3
+Why five?           |    4?
 
-
-P10.
+b)
+11001000 10010001 01010001 01010101
+ - The packet with this address would be sent to output link 3 since it does not fully match any of the prefixes.
+11100001 01000000 11000011 00111100
+ - The packet with this addres would be sent to output link 2 since it matches the prefix for link 2.
+11100001 10000000 00010001 01110111
+ - The packet with this addres would be sent to output link 3 since it does not fully match any of the prefixes.
 
 P11.
+Prefix |Interface|             Interface |  Range               | # of Hosts
+00     |    0    |                 0     | 00000000 to 00111111 |
+010    |    1    |                 1     | 01000000 to 01111111 |  
+011    |    2    |                 2     | 01100000 to 10111111 |
+10     |    2    |                 3     | 11000000 to 11111111 |
+11     |    3    |      
+ 
 
 P15.
+224.0.0.0/10        |    0
+224.64.0.0/
+11100000 01000000   |    1
+110000              |    2
+otherwise           |    3
 
 P16.
+possible host   = 128.119.40.129
+original subnet = 128.119.40.64/26
+subnet 1 = 128.119.40.64/28
+01000000
+subnet 2 = 128.119.40.80/28
+01010000
+subnet 3 = 128.119.40.96/28
+01100000
+subnet 4 = 128.119.40.112/28
+01110000
+
 
 P19. 
 
