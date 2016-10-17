@@ -124,12 +124,16 @@ Host A is sending an enormous file to Host B over a TCP connection. Over this co
 
 P54. 
 In our discussion of TCP congestion control in Section 3.7, we implicitly assumed that the TCP sender always had data to send. Consider now the case that the TCP sender sends a large amount of data and then goes idle (since it has no more data to send) at t 1 . TCP remains idle for a relatively long period of time and then wants to send more data at t 2 . What are the advantages and dis- advantages of having TCP use the cwnd and ssthresh values from t 1 when starting to send data at t 2 ? What alternative would you recommend? Why?
-	- 
+	- An advantage would be TCP not having to start over with slow start
+  I would recommend sending smaller packets over shorter time intervals to better access the true capability of the connection.
 
 P55.
 In this problem we investigate whether either UDP or TCP provides a degree of end-point authentication. 
 a. Consider a server that receives a request within a UDP packet and responds to that request within a UDP packet (for example, as done by a DNS server). If a client with IP address X spoofs its address with address Y, where will the server send its response? 
+- address Y
+
 b. Suppose a server receives a SYN with IP source address Y, and after responding with a SYNACK, receives an ACK with IP source address Y with the correct acknowledgment number. Assuming the server chooses a random initial sequence number and there is no “man-in-the-middle,” can the server be certain that the client is indeed at Y (and not at some other address X that is spoofing Y)?
+-  Yes because of the three way handshake Y is always at address Y if it has the correct acknowledgement number. 
 
 
 
