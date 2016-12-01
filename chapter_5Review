@@ -1,0 +1,102 @@
+R2. If all the links in the Internet were to provide reliable delivery service, would
+the TCP reliable delivery service be redundant? Why or why not?
+- Yes.  TCP is reliable because it can ensure that all packets get to a destination.  If all links are able to provide reliable delivery then the Transport layer would not need to worry about whether or not a packet would reach its destination, since the links ensure that the any given packet will.
+
+R3. What are some of the possible services that a link-layer protocol can offer to
+the network layer? Which of these link-layer services have corresponding
+services in IP? In TCP?
+- 
+
+
+SECTION 5.3
+R5. In Section 5.3, we listed four desirable characteristics of a broadcast channel.
+Which of these characteristics does slotted ALOHA have? Which of these
+characteristics does token passing have?
+
+slotted ALOHA allows a node to send packets at the full transmission rate of the link if it is the only node with packets to send.  Also, It is a fairly decentralized protocol since each node sharing a link decides when to send its packets independently from all other nodes.  However, synchronisation is needed for all the sending slots to line up.  Another characteristic that slottef aloha has is that it is relativly simple and easy to implement.
+
+Token passing has the ablitity to aloow M nodes to have a throughput of R/M, as well as being decentralized.
+
+
+Desirable characteristics:
+1. When only one node has data to send, that node has a throughput of R bps.
+2. When M nodes have data to send, each of these nodes has a throughput of R/M bps. This need not necessarily imply that each of the M nodes always has an instantaneous rate of R/M, but rather that each node should have an average transmission rate of R/M over some suitably defined interval of time.
+3. The protocol is decentralized; that is, there is no master node that represents a
+single point of failure for the network.
+4. The protocol is simple, so that it is inexpensive to implement.
+
+
+R8. Why would the token-ring protocol be inefficient if a LAN had a very large
+perimeter?
+
+Due to the fact that the token-ring protocol only allows each node to send a limited amount of data before passing the token on, ineffecietcy can be found when only one node has packets to transmit.  Time is wasted each time the node has to pass the token.  No other node have data to send but the node that does must pass the token and wait for it to come around again.  If the LAN has a large perimiter then the time that it would take for the token to get back to the node with sendable data, would be large, thus resulting in a larger amount of time wasted.
+
+
+SECTION 5.4
+R9. 
+How big is the MAC address space?
+  - 6 byte (48-bit) adresses so there are 2^48 different possible adresses 
+The IPv4 address space?
+  - 4 byte (32-bit) addresses, so there are 2^32 different possible addresess
+The IPv6 address space?
+  - 16 byte (128-bit) addresses, so there are 2^128 different possible addresess
+
+R10. Suppose nodes A, B, and C each attach to the same broadcast LAN (through
+their adapters). If A sends thousands of IP datagrams to B with each encapsu-
+lating frame addressed to the MAC address of B, will C’s adapter process
+these frames?
+  - no since the mac address is not addressed to C
+How would your answers change if A sends frames with the MAC broadcast address?
+  - C's adapter would process the brodcast request and send the packet up the layers..
+If so, will C’s adapter pass the IP datagrams in these frames to
+the network layer C? 
+  - Yes likely to the arp module 
+
+R11. Why is an ARP query sent within a broadcast frame? 
+  - This is so all adapters on the local area network will process the information and respond to it If their own IP address matches the destination IP address.
+Why is an ARP response sent within a frame with a specific destination MAC address?
+  - Because it needs to respond directly to the node that requested the IP-MAC mapping.
+
+R12. For the network in Figure 5.19, the router has two ARP modules, each with
+its own ARP table. Is it possible that the same MAC address appears in both
+tables?
+- If the device with the MAC address in question was moved from one subnet to the other before its entry in the table expired then yes, but otherwise no.  the table only has mappings for devices in the subnet of the adapter.
+
+R13. Compare the frame structures for 10BASE-T, 100BASE-T, and Gigabit Eth-
+ernet. How do they differ?
+  - they are the same...
+
+
+R14. Consider Figure 5.15. How many subnetworks are there, in the addressing
+sense of Section 4.4?
+1 
+
+
+Extra review
+The * questions are: R1, R4, R7
+
+
+
+Midterm Answers in my own words:
+
+If routers had to haze the same VC number for each router along the path of a VC 
+
+This is because in a datagram network packets can go along different links than a packet that was sent before or after it from the same host even though it is destined for the same place.  This means that an outage in a link would just cause the routers to find another path.
+
+For Ipv6 tunneling, through an Ipv4 network, the ipv6 packet must be encapsulated in a Ipv4 packet in order to get through the network.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
