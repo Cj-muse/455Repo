@@ -1,0 +1,36 @@
+Conner Mattingly
+11282717
+Hw Chapter 6
+
+P6.
+I think they may have designed CSMA/CA for cases that are similar to the following. There are three transmitting nodes and two nodes enter binary backoff at the same time while the other transmitts.  When the transmitting node finishes one of the two remaining nodes will transmitt and since the remaining node is still counting down I suppose the designers wanted it to be possible for the node to be able to transmit even if the other node had a lot of data to send.  If they didnt leave the time interval between transmitted frames of a given node then no other nodes would get to transmit untill the one transmitting had sent all of its data.  This could take many frames.  Therefore they left the interval to allow other nodes a chance to send some data.
+
+P9.
+Describe the format of the 802.15.1 Bluetooth frame. You will have to do
+some reading outside of the text to find this information. Is there anything in
+the frame format that inherently limits the number of active nodes in an
+802.15.1 network to eight active nodes? Explain.
+
+The format of the 802.15.1 Bluetooth frame is a 72 bit Access code, followed by a 64 bit header, followed by a 0-2745 bit payload. 
+There is a limit on the number of active nodes and that limit is due to the first subfield in the header of the frame, AM_ADDR.  This subfield is represented with only 3 bits. This allows for 9 distinct values to represent who is communicating.  Since one reserved for broadcasts that leaves 8 values to specify who is communicating, therefore the frame format limits the number of active nodes to 8.
+
+
+P11.
+In Section 6.5, one proposed solution that allowed mobile users to maintain their IP addresses as they moved among foreign networks was to have a foreign network advertise a highly specific route to the mobile user and use the existing routing infrastructure to propagate this information throughout the network. We identified scalability as one concern. Suppose that when a mobile user moves from one network to another, the new foreign network advertises a specific route to the mobile user, and the old foreign network withdraws its route. Consider how routing information propagates in a distance-vector algorithm (particularly for the case of interdomain routing among networks that span the globe). 
+a. Will other routers be able to route datagrams immediately to the new for-eign network as soon as the foreign network begins advertising its route?
+No they must wait untill the new route has been propagated through the entire network.  Or at least until it has propagated to the router and all routers along the path to the foriegn network.
+
+b. Is it possible for different routers to believe that different foreign networks contain the mobile user? 
+Yes but only in the instance where the mobile user has moved to a different foreign network and the change of route has not yet propegated throughout the entire network.  In other words the new information has only reached some and not all of the routers.
+
+c. Discuss the timescale over which other routers in the network will eventually learn the path to the mobile users.
+It depends on how large the network is.  Propagation involves the first router that detects a change to then notify all of its neighboors and this change reaction continues until all routers have been notified of the updated information.
+
+
+P15.
+Consider two mobile nodes in a foreign network having a foreign agent. Is it
+possible for the two mobile nodes to use the same care-of address in mobile
+IP? Explain your answer.
+
+R10.
+There would be no advantage since collisions of the RTS and CTS would be just as wastefull as the DATA and ACK frames.
