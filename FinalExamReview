@@ -1,9 +1,39 @@
+Application Layer  : Web page serving
+Transport Layer    : Reliable bytestream delivery to applications
+Network Layer      : Deliver datagrams across multiple connected links
+Link Layer         : Operates between directly connected links
+Physical Layer     : Primarily Characterized by electrical or optical signaling techniques
+
+TCP three-way-handshake
+1st packet: Sending Host: A  [SYN]      seq = 0
+2nd packet: Sending Host: B  [SYN, ACK] seq = 0 ack = 1
+3rd packet: Sending Host: A  [ACK]      seq = 1 ack = 1
+Explanation: Syn bit set means to synchronyse sequence numbers
+Ack bit set means its acknowloging a message that was recieved.
+min(cwnd, rcwd) - bits currently in transit = bytes a sender can still send over the link.
+min(cwnd, rcwd) - (highestSeq#SentSoFar - largestAckRecievedSoFar) = bytes that can still be sent.
+
+IP Network Addressing
+netmask: 1 bits are reserved, 0 bits indicate available bits for the subnet to assign hosts with.  For example: 11111111.11111111.11111111.00000000 or 255.255.255.0  means that there are 8 bits available to represent different hosts. In this example they can represent 255 unique addresses.
+Broadcast address: make all host bits 1's. in this example it would be 255.255.255.255 (If one of the fields was originally a smaller number, say 248, and we only had 1 host bit to manipulate. then the broadcast for that byte would be 249 i.e 255.255.255.249)
+
+bandwidth = bits/sec | round trip = there and back | packet size, can be MSS for window sizes. 
+one packet = one window.
+
+
+CSMA/CD : Carier sense multiple access collision avoidence. 
+RTS: request to send 
+CTS: clear to send
+
+Process:
+1. If channel sensed Idle, transmitts frame after short period of time known as the Distributed Inter-frame Space. 
+2. Otherwise random backoff time is chosen (binary exponential backoff) which only decreases while there is a idle channel.  Timer remains frozen during a busy channel.
+3. When the timer reaches zero, station transmitts entire frame and waits for ack.
+4. If ack recived then it goes to step two.  If no ack then step two is repeated with a larger backoff.
+
+
+
+
+
 
 What is  exponential moving average?
-
-  1. Application Layer  : Web page serving
-     Transport Layer    : Reliable bytestream delivery to applications
-     Network Layer      : Deliver datagrams across multiple connected links
-     Link Layer         : Operates between directly connected links
-     Physical Layer     : Primarily Characterized by electrical or optical signaling techniques
-
