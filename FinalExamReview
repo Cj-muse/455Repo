@@ -1,15 +1,9 @@
 
-Practice Final:
-
-  1. Application Layer  : Web page Serving
-     Transport Layer    : Reliable bytestream delivery to applications
-     Network Layer      : deliver datagrams across multiple connected links
-     Link layer         : Operates between directly connected hosts
-     Physical Layer     : primarily characterized by electrical or optical    
-                          signalling techniques
-  
-
-
 What is  exponential moving average?
 
+  1. Application Layer  : Web page serving
+     Transport Layer    : Reliable bytestream delivery to applications
+     Network Layer      : Deliver datagrams across multiple connected links
+     Link Layer         : Operates between directly connected links
+     Physical Layer     : Primarily Characterized by electrical or optical signaling techniques
 

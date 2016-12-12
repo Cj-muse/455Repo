@@ -1,12 +1,5 @@
-contents xx
-chapter 4 305
-questions 417
-325
-block addresses
-345
-due friday 10/21
-
 Conner Mattingly 
+11282717
 Hw4
 
 P4)
@@ -65,7 +58,7 @@ b)
 11001000 10010001 01010001 01010101
  - The packet with this address would be sent to output link 3 since it does not fully match any of the prefixes.
 11100001 01000000 11000011 00111100
- - The packet with this addres would be sent to output link 2 since it matches the prefix for link 2.
+ - The packet with this address would be sent to output link 2 since it matches the prefix for link 2.
 11100001 10000000 00010001 01110111
  - The packet with this addres would be sent to output link 3 since it does not fully match any of the prefixes.
 
@@ -99,19 +92,123 @@ subnet 4 = 128.119.40.112/28
 
 
 P19. 
+original datagram = 2400-bytes
+MTU = 700 bytes
+ID # = 422
+Header size = 20 bytes 
 
+How many fragments? 4
+Values of IP fields?
+
+1st Fragment
+  Bytes: 680 (-20 for header total 700)
+  ID: 422
+  Offset:0
+  FLag:1
+
+2nd Fragment
+  Bytes: 680 (-20 for header total 700)
+  ID: 422
+  Offset: 85 (85 * 8 = 680) 
+  FLag: 1
+
+3rd Fragment
+  Bytes: 680 (-20 for header total 700)
+  ID: 422
+  Offset: 170 (170 * 8 = 1360 =  680 + 680)
+  FLag: 1
+  
+4th Fragment
+  Bytes: 260 (- 20 for header 280)
+  ID:422
+  Offset: 255 (255 * 8 = 2040 = 680 + 680 + 680)
+  FLag: 0
+
+365
+422 
 P26.
+Step  |  N'  | D(y),p(y) | D(w),p(w) | D(v),p(v) | D(z),p(z) | D(t),p(t) | D(u),p(u) |
+0     |x     |    6,x    |    6,x    |    3,x    |    8,x    |    00     |    00     |
+1     |xv    |    6,x    |    6,x    |    3,x    |    8,x    |    7,v    |    6,v    |
+2     |xvu   |    6,x    |    6,x    |    3,x    |    8,x    |    7,v    |    6,v    |
+3     |xvut  |    6,x    |    6,x    |    3,x    |    8,x    |    7,v    |    6,v    |
+4     |xvutw |    6,x    |    6,x    |    3,x    |    8,x    |    7,v    |    6,v    |
+5     |xvutwz|    6,x    |    6,x    |    3,x    |    8,x    |    7,v    |    6,v    |
+
 
 P27d. 
+Step  |  N'  | D(x),p(x) | D(v),p(v) | D(u),p(u) | D(y),p(y) | D(t),p(t) | D(z),p(z) |
+0     |w     |    6,w    |    4,w    |    3,w    |    00     |    00     |    00     |
+1     |wu    |    6,w    |    4,w    |    3,w    |    00     |    5,u    |    00     |
+2     |wut   |    6,w    |    4,w    |    3,w    |   12,t    |    5,u    |    00     |
+3     |wutv  |    6,w    |    4,w    |    3,w    |   12,tv   |    5,u    |    00     |
+4     |wutvx |    6,w    |    4,w    |    3,w    |   12,tvx  |    5,u    |    14,x   |
+5     |wutvxy|    6,w    |    4,w    |    3,w    |   12,tvx  |    5,v    |    14,x   |
 
+
+371
+423
 P28. 
+For each neighbor v, the cost c(x,v) from x to directly attached neighbor, v
+• Node x’s distance vector, that is, D x = [D x (y): y in N], containing x’s estimate of
+its cost to all destinations, y, in N
+• The distance vectors of each of its neighbors, that is, D v = [D v (y): y in N] for each
+neighbor v of x
+
+   cost to
+f   z v x
+r z 0 6 2  
+o v 0 0 0   
+m x 0 0 0    
+
 
 P32.
+Consider the count-to-infinity problem in the distance vector routing. Will the
+count-to-infinity problem occur if we decrease the cost of a link? Why? How
+about if we connect two nodes which do not have a link?
  
 P55.
-
+What is the size of the multicast address space? Suppose now that two multi-
+cast groups randomly choose a multicast address. What is the probability that
+they choose the same address? Suppose now that 1,000 multicast groups are
+ongoing at the same time and choose their multicast group addresses at ran-
+dom. What is the probability that they interfere with each other?
 
 
 
  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
