@@ -18,19 +18,19 @@ There is a limit on the number of active nodes and that limit is due to the firs
 P11.
 In Section 6.5, one proposed solution that allowed mobile users to maintain their IP addresses as they moved among foreign networks was to have a foreign network advertise a highly specific route to the mobile user and use the existing routing infrastructure to propagate this information throughout the network. We identified scalability as one concern. Suppose that when a mobile user moves from one network to another, the new foreign network advertises a specific route to the mobile user, and the old foreign network withdraws its route. Consider how routing information propagates in a distance-vector algorithm (particularly for the case of interdomain routing among networks that span the globe). 
 a. Will other routers be able to route datagrams immediately to the new for-eign network as soon as the foreign network begins advertising its route?
-No they must wait untill the new route has been propagated through the entire network.  Or at least until it has propagated to the router and all routers along the path to the foriegn network.
+No they must wait untill the new route has been propagated through the entire network.  Or at least until it has propagated to all routers along the path to the foriegn network.
 
 b. Is it possible for different routers to believe that different foreign networks contain the mobile user? 
-Yes but only in the instance where the mobile user has moved to a different foreign network and the change of route has not yet propegated throughout the entire network.  In other words the new information has only reached some and not all of the routers.
+Yes but only in the instance where the mobile user has moved to a different foreign network and the change of route has not yet propagated throughout the entire network.  In other words only when the new information has reached some but not all of the routers yet.
 
 c. Discuss the timescale over which other routers in the network will eventually learn the path to the mobile users.
-It depends on how large the network is.  Propagation involves the first router that detects a change to then notify all of its neighboors and this change reaction continues until all routers have been notified of the updated information.
+It depends on how large the network is.  Propagation involves the first router that detects a change to then notify all of its neighboors and this change reaction continues until all routers have been notified of the updated information. So it depends on transmission times and all other delay times involved in sending data packets throughout the network.
 
 
 P15.
-Consider two mobile nodes in a foreign network having a foreign agent. Is it
-possible for the two mobile nodes to use the same care-of address in mobile
-IP? Explain your answer.
+Consider two mobile nodes in a foreign network having a foreign agent. Is it possible for the two mobile nodes to use the same care-of address in mobile IP? Explain your answer.
+Yes, If the care-of-address represents the foreign agent then two mobile nodes could have the same care-of-address.
+This would mean packets arrive at the foreign agent who is then responsible for decapsulating the packets and sending them to the right mobile node.
 
 R10.
-There would be no advantage since collisions of the RTS and CTS would be just as wastefull as the DATA and ACK frames.
+There would be no advantage since collisions of the RTS and CTS would be just as wastefull as the DATA and ACK frames.  The point of RTS/CTS being smaller is that in the case of a collision not as much time is wasted.
