@@ -7,7 +7,7 @@ Physical Layer     : Primarily Characterized by electrical or optical signaling 
 TCP three-way-handshake
 1st packet: Sending Host: A  [SYN]      seq = 0
 2nd packet: Sending Host: B  [SYN, ACK] seq = 0 ack = 1
-3rd packet: Sending Host: A  [ACK]      seq = 1 ack = 1
+3rd packet: Sending Host: A  [ACK]      seq = 1 ack = 1 (this message could have payload)
 Explanation: Syn bit set means to synchronyse sequence numbers
 Ack bit set means its acknowloging a message that was recieved.
 min(cwnd, rcwd) - bits currently in transit = bytes a sender can still send over the link.
@@ -19,21 +19,47 @@ Broadcast address: make all host bits 1's. in this example it would be 255.255.2
 
 bandwidth = bits/sec | round trip = there and back | packet size, can be MSS for window sizes. 
 one packet = one window.
-
+Bandwidth delay product = RTT * Bandwidth = bits... divde by packet size to get window size
 
 CSMA/CD : Carier sense multiple access collision avoidence. 
 RTS: request to send 
 CTS: clear to send
 
-Process:
+CSMA/CD Process on 802.11 wireless:
 1. If channel sensed Idle, transmitts frame after short period of time known as the Distributed Inter-frame Space. 
 2. Otherwise random backoff time is chosen (binary exponential backoff) which only decreases while there is a idle channel.  Timer remains frozen during a busy channel.
 3. When the timer reaches zero, station transmitts entire frame and waits for ack.
 4. If ack recived then it goes to step two.  If no ack then step two is repeated with a larger backoff.
 
+Security
+Message Authentication code: (m, H(m+s)) = m appended with H(m+s)
+m = message, s = shared secret, H() is hashing function
+  - only ensures message was not tampered with since the reciver can rehash message m with the shared secret and compare it to the appended part of the message to ensure that they are the same.
+
+Symetric key encryption: one shared key...
+public key 
+
+RSA
+(p, q are relatively prime numbers that multiply to produce n)
+z is the totient ((p-1)(q-1))
+public key (n, e) | private key (d)
+d*e mod z = 1 (Required)
+c^d mod n = m | m^e mod n = c
+m = message as number such that 0 <= m < n . c = cipherText
+also m and n are coprime. gcd(m,n) = 1
+
+Qualities of cryptographic hash functions.
+- easy to compute H(m) 
+- impractical to produce H(m`) that is = to H(m) 
 
 
 
+
+ role of certificates and certificate authorities
 
 
 What is  exponential moving average?
+
+
+
+
